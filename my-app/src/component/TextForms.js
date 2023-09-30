@@ -43,8 +43,8 @@ export default function TextForms(props) {
 
       <div className="container my-3">
           <h1>Your Text Summary</h1>
-          <p><b>{text.split(' ').filter((element) => { return element.length !== 0}).length}</b> words and <b>{text.length}</b> characters</p>
-          <p>Average Reader will take <b>{0.008 * text.split(' ').filter((element) => { return element.length !== 0}).length}</b> Minute to read above words.</p>
+          <p><b>{text.split(/\s/).filter((element) => { return element.length !== 0}).length}</b> words and <b>{text.length}</b> characters</p>
+          <p>Average Reader will take <b>{0.008 * text.split(/\s/).filter((element) => { return element.length !== 0}).length}</b> Minute to read above words.</p>
           <h2>Preview</h2>
           <p>{text.length > 0?text:"Enter Some Text in the Above TextField to Preview it Here!!!"}</p>
       </div>
