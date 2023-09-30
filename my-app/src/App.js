@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './App.css';
-//import About_us from './component/About_us';
+import About from './component/About';
 import Navbar from './component/Navbar';
 import TextForms from './component/TextForms';
 import Alert from './component/Alert';
+import{BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() 
 {
@@ -36,14 +37,18 @@ function App()
     }
   }
   return (
+    <Router>
     <>
       <Navbar title = "TextWebSite" mode={mode} toggleMode = {toggleMode}/>
       <Alert alert={alert}/>
       <div className="container my-3">
-          <TextForms showalert={showalert} heading = "Enter the text below to analyze" mode={mode}/>
-          {/* <About_us/> */}
-      </div>
+        <Routes>
+          <Route path="/about" element={<About />}/>
+          <Route path="/" element={<TextForms showalert={showalert} heading="Enter the text below to analyze" mode={mode} />} />
+        </Routes>
+        </div>
     </>
+    </Router>
   );
 }
 
